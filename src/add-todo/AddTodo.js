@@ -25,5 +25,6 @@ export default class AddTodo extends Component {
 
     submitTodo = (e) => {
         e.preventDefault();
+        this.props.addTodofn(this.state.todo);
     }
 }

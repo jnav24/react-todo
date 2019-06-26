@@ -15,7 +15,7 @@ class App extends Component {
     render() {
         return (
             <div className="app">
-                <AddTodo></AddTodo>
+                <AddTodo addTodoFn={this.addTodo}></AddTodo>
                 <TodoList/>
                 <TodoItem/>
             </div>
@@ -33,6 +33,13 @@ class App extends Component {
         } else {
             console.log('no todos');
         }
+    }
+
+    addTodo = async (todo) => {
+        await this.setState({
+            todos: [ ...this.state.todos, todo ],
+        });
+        localStorage.setItem('todos', JSON.stringify(this.state.todos));
     }
 }
 
