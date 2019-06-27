@@ -12,7 +12,7 @@ export default class AddTodo extends Component {
         return (
             <div className="add-todo">
                 <form onSubmit={(e) => this.submitTodo(e)}>
-                    <input onChange={(e) => this.updateInput(e)} type="text"/>
+                    <input id="addTodoInput" onChange={(e) => this.updateInput(e)} type="text"/>
                     <button>Add Todo</button>
                 </form>
             </div>
@@ -26,5 +26,6 @@ export default class AddTodo extends Component {
     submitTodo = (e) => {
         e.preventDefault();
         this.props.addTodoFn(this.state.todo);
+        document.getElementById('addTodoInput').value = '';
     }
 }
