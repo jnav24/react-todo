@@ -14,6 +14,6 @@ export default class TodoItem extends Component {
     }
 
     toggleTodo() {
-
+        this.props.updateTodoFn(this.props.todo);
     }
 }

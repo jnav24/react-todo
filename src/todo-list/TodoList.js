@@ -9,10 +9,14 @@ export default class TodoList extends Component {
             <div className="todo-list-container">
                 { todos.map((todo, index) => {
                     return(
-                        <TodoItem key={index} todo={todo}></TodoItem>
+                        <TodoItem updateTodoFn={this.updateTodo} key={index} todo={todo}></TodoItem>
                     );
                 }) }
             </div>
         );
+    }
+
+    updateTodo = (todo) => {
+        this.props.updateTodoFn(todo);
     }
 }

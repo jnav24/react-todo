@@ -15,7 +15,7 @@ class App extends Component {
         return (
             <div className="app">
                 <AddTodo addTodoFn={this.addTodo}></AddTodo>
-                <TodoList todos={this.state.todos} />
+                <TodoList updateTodoFn={this.updateTodo} todos={this.state.todos} />
             </div>
         );
     }
@@ -44,6 +44,22 @@ class App extends Component {
             ],
         });
         localStorage.setItem('todos', JSON.stringify(this.state.todos));
+    }
+
+    updateTodo = (todo) => {
+        const todos = this.state.todos.map((_todo) => {
+            if (todo === _todo) {
+                return {
+                    text: todo.text,
+                    completed: !todo.completed
+                }
+            }
+
+            return todo;
+        });
+        this.setState({
+            todos,
+        });
     }
 }
 
