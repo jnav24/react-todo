@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import AddTodo from './add-todo/AddTodo';
-import TodoItem from './todo-item/TodoItem';
 import TodoList from './todo-list/TodoList';
 
 class App extends Component {
@@ -16,8 +15,7 @@ class App extends Component {
         return (
             <div className="app">
                 <AddTodo addTodoFn={this.addTodo}></AddTodo>
-                <TodoList/>
-                <TodoItem/>
+                <TodoList todos={this.state.todos} />
             </div>
         );
     }
