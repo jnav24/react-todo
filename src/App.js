@@ -55,8 +55,9 @@ class App extends Component {
                 }
             }
 
-            return todo;
+            return _todo;
         });
+
         this.setState({
             todos,
         });
