@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './todo-items.css';
 
 export default class TodoItem extends Component {
     render() {
@@ -7,13 +8,13 @@ export default class TodoItem extends Component {
         return (
             <div
                 onClick={this.toggleTodo}
-                className="todo-item">
+                className={'todo-item ' + (todo.completed ? 'completed' : '')}>
                 {todo.text}
             </div>
         );
     }
 
-    toggleTodo() {
+    toggleTodo = () => {
         this.props.updateTodoFn(this.props.todo);
     }
 }
