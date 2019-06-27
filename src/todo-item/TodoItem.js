@@ -2,6 +2,18 @@ import React, { Component } from 'react';
 
 export default class TodoItem extends Component {
     render() {
-        return (<div>Todo Item</div>);
+        const { todo } = this.props;
+
+        return (
+            <div
+                onClick={this.toggleTodo}
+                className="todo-item">
+                {todo.text}
+            </div>
+        );
+    }
+
+    toggleTodo() {
+
     }
 }
